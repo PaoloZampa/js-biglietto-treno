@@ -17,17 +17,34 @@ L'output del prezzo finale va messo fuori in forma umana (con massimo due decima
 //SVOLGIMENTO
 
 //Chiedere al passeggero Km che vuole percorrere
-
 const km = Number(prompt("Quanti Chilometri vuoi percorrere?"));
 console.log(km);
 
-//Chiedere al passeggero quanti anni ha
-
+//Chiedere al passeggero quanti anniF ha
 const age = Number(prompt("Quanti anni hai?"));
 console.log(age);
 
 //Calcolare prezzo in base ai km
+const fullPrice = km * 0.21
 
 //Applicare sconto 20% per minorenni
+let discountedPrice20 = fullPrice - (fullPrice / 100 * 20)
+
 
 //applicare sconto 40% per over 65
+let discountedPrice40 = fullPrice - (fullPrice / 100 * 40)
+
+//creo funzione calcolo prezzo e mostro prezzo su schermo con occhio ai decimali
+document.getElementById("price")
+
+if (age < 18) {
+    console.log(discountedPrice20);
+    price.innerHTML = discountedPrice20.toFixed(2);
+} else if (age >= 65) {
+    console.log(discountedPrice40)
+    price.innerHTML = discountedPrice40.toFixed(2);
+} else {
+    console.log(fullPrice);
+    price.innerHTML = fullPrice.toFixed(2);
+}
+
